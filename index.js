@@ -38,6 +38,16 @@ function User(name,dictionary) {
   this.name = name;
   this.dictionary = dictionary;
 
+
+
+  this.getTopWords = function () {
+    var topWords = this.dictionary.sort(function(a,b){return b.frequency - a.frequency});
+    for (var i = 0; i < 10; i++) {
+       topVector[i] = topWords[i].name;
+    }
+    return topVector;
+  }
+
   this.updateDictionary = function (newDictionary) {
     for (var i = 0; i < newDictionary.length; i++) {
       var notFound = true;
