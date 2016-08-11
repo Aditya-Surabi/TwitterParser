@@ -34,6 +34,9 @@ function User(name,dictionary) {
       }
     }
   }
+  this.getDictionarySize = function () {
+    return this.dictionary.length;
+  }
 
 }
 
