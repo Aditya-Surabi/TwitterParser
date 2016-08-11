@@ -5,7 +5,7 @@ console.log(str);
 str = splitSentence(str);
 console.log(str);
 str = removeStopWords(str, stopWords);
-
+var dictionary = createDictionary(str);
 
 console.log(str);
 
@@ -36,6 +36,21 @@ function Word(name) {
 function User(name,dictionary) {
   this.name = name;
   this.dictionary = dictionary;
+
+  this.updateDictionary = function (word) {
+    var notFound = true;
+    //Check if the word already exists
+    for (var i = 0; i < this.dictionary.length; i++) {
+      if (word.name == this.dictionary[i].name){
+        this.dictionary[i].incfrq();
+        notFound = false;
+        break;
+      }
+    }
+    if (notFound){
+      this.dictionary.push(word);
+    }
+  }
 }
 
 function createDictionary(str) {
