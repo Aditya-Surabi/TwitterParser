@@ -25,8 +25,8 @@ function removeStopWords(str,stopWords) {
   return str;
 }
 
-function Word(word) {
-  this.word = word;
+function Word(name) {
+  this.name = name;
   this.frequency = 1;
   this.incfrq = function(){
     this.frequency++;
