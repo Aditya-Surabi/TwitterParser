@@ -5,6 +5,8 @@ console.log(str);
 str = splitSentence(str);
 console.log(str);
 str = removeStopWords(str, stopWords);
+
+
 console.log(str);
 
 function splitSentence(str) {
@@ -21,4 +23,12 @@ function removeStopWords(str,stopWords) {
     }
   }
   return str;
+}
+
+function Word(word) {
+  this.word = word;
+  this.frequency = 1;
+  this.incfrq = function(){
+    this.frequency++;
+  }
 }
