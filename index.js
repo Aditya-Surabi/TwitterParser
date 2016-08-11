@@ -7,14 +7,17 @@ str = splitSentence(str);
 console.log(str);
 str = removeStopWords(str, stopWords);
 var dictionary = createDictionary(str);
-
 console.log(str);
 
+
+//Function that returns an array of words in a given sentence.
 function splitSentence(str) {
     str = str.split(" ");
     return str;
 }
 
+//Function that searches through a given array of words for specific  "stop words"
+//and removes them. Returns the original array with "stop words" removed.
 function removeStopWords(str,stopWords) {
   for (var i = 0; i < str.length; i++) {
     for (var j = 0; j < stopWords.length; j++) {
@@ -25,7 +28,23 @@ function removeStopWords(str,stopWords) {
   }
   return str;
 }
+//Function that takes in an array of strings and converts it into a dictionary.
+//A dictionary is a collection of "Word" objects so each string is instantiated as a "Word"
+//object before being added to the dictionary.
+function createDictionary(str) {
+  var dictionary = [];
+  for (var i = 0; i < str.length; i++) {
+    var temp = new Word(str[i]);
+    dictionary.push(temp);
+  }
+  return dictionary;
+}
 
+//Word class definition.
+//A "word" object has a name and frequency property and increase frequency function .
+//  name -> name of the word
+// frequency -> number of times that word is found in a dictionary.
+// incfrq -> method that increments the frequency property by 1.
 function Word(name) {
   this.name = name;
   this.frequency = 1;
@@ -33,12 +52,15 @@ function Word(name) {
     this.frequency++;
   }
 }
-
+//User class definition
+// name -> name of user (twitter handle)
+// dictionary -> array of "Word" objects
+//getTopWords -> function that sorts the user's dictionary by word frequency and returns the top 10 most used words.
+//updateDictionary -> Takes a dictionary as a parameter and adds it to the user's existing dictionary if the words don't
+//already exist. If the word does exist then that words frequency is incremented.
 function User(name,dictionary) {
   this.name = name;
   this.dictionary = dictionary;
-
-
 
   this.getTopWords = function () {
     var topWords = this.dictionary.sort(function(a,b){return b.frequency - a.frequency});
@@ -63,13 +85,4 @@ function User(name,dictionary) {
       }
     }
   }
-}
-
-function createDictionary(str) {
-  var dictionary = [];
-  for (var i = 0; i < str.length; i++) {
-    var temp = new Word(str[i]);
-    dictionary.push(temp);
-  }
-  return dictionary;
 }
