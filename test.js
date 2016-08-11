@@ -10,21 +10,25 @@ function User(name,dictionary) {
   this.name = name;
   this.dictionary = dictionary;
 
-  this.updateDictionary = function (word) {
-    var notFound = true;
-    //Check if the word already exists
-    for (var i = 0; i < this.dictionary.length; i++) {
-      if (word.name == this.dictionary[i].name){
-        this.dictionary[i].incfrq();
-        notFound = false;
-        break;
+  this.updateDictionary = function (newDictionary) {
+    for (var i = 0; i < newDictionary.length; i++) {
+      var notFound = true;
+      for (var j = 0; j < this.dictionary.length; j++) {
+        if(newDictionary[i].name == this.dictionary[j].name){
+          this.dictionary[j].incfrq();
+          notFound = false;
+          break;
+        }
+      }
+      if (notFound){
+        this.dictionary.push(newDictionary[i]);
       }
     }
-    if (notFound){
-      this.dictionary.push(word);
-    }
   }
+
 }
+
+
 
 
 var arr = [];
@@ -39,12 +43,14 @@ var arr = createDictionary(str);
 var user1 = new User("jim",arr);
 var w = new Word("how");
 var t = new Word("hey");
+var d = [w,t];
 for (var i = 0; i < user1.dictionary.length; i++) {
   console.log(user1.dictionary[i].name);
 }
 
-user1.updateDictionary(t);
-user1.updateDictionary(w);
+// user1.updateDictionary(t);
+// user1.updateDictionary(w);
+user1.updateDictionary(d);
 
 for (var i = 0; i < user1.dictionary.length; i++) {
   console.log("Word: "+user1.dictionary[i].name+ " Frequency: "+user1.dictionary[i].frequency);
