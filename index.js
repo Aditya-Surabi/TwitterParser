@@ -32,3 +32,12 @@ function Word(name) {
     this.frequency++;
   }
 }
+
+function createDictionary(str) {
+  var dictionary = [];
+  for (var i = 0; i < str.length; i++) {
+    var temp = new Word(str[i]);
+    dictionary.push(temp);
+  }
+  return dictionary;
+}
