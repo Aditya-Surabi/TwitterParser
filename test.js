@@ -6,6 +6,11 @@ function Word(name) {
   }
 }
 
+function User(name,dictionary) {
+  this.name = name;
+  this.dictionary = dictionary;
+}
+
 
 var arr = [];
 
@@ -16,7 +21,12 @@ console.log("The word is: "+test.name+ " The frequency is: "+test.frequency);
 
 var str = ["how", "today"];
 var arr = createDictionary(str);
-console.log(arr[0].name);
+var user1 = new User("jim",arr);
+
+for (var i = 0; i < user1.dictionary.length; i++) {
+  console.log(user1.dictionary[i].name);
+}
+
 
 
 function createDictionary(str) {

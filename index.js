@@ -33,6 +33,11 @@ function Word(name) {
   }
 }
 
+function User(name,dictionary) {
+  this.name = name;
+  this.dictionary = dictionary;
+}
+
 function createDictionary(str) {
   var dictionary = [];
   for (var i = 0; i < str.length; i++) {
