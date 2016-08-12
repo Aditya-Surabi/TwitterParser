@@ -43,3 +43,5 @@ one of the arrays (the one that is established ie. the tweet array for removeSto
 into a hashtable. When iterating through the second array a hastable search is performed to determine whether that element in the
 second array exists in the first. A collison in the table would indicate that the value exists and the appropriate action can be executed (remove for removeStopWords and either increase frequency or insert word for updateDicitionary).
 Hashtable search and insertion run in O(1). 
+
+Moving class definitions and functions into seperate files and importing them to a main file. This would make the codebase a lot neater and more managable. 
