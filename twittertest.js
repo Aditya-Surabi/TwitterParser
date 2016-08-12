@@ -5,9 +5,8 @@ var config = require('./config');
 var tweets = [];
 
 getTweet('maggierogers',tweets);
-
-// getTweet('kanyewest');
-// getTweet('methodman');
+getTweet('kanyewest');
+getTweet('methodman');
 
 
 function getTweet(username,tweets) {
