@@ -27,7 +27,7 @@
 
 #Written implementations of unfinished tasks
 
-3) Possible solution to remove repetition would be through the use of regex. ->   remove character if /x(?=x)/ asserts true.
+3) Possible solution to remove repetition would be through the use of regex. ->   remove character if /x(?=xx)/ asserts true.
 
 Ranking users: Perform a comparison of user's top word vectors. Variable used to track similarity as an integer. If words are matching a similarity point is accumulated. Matching words between users that are a lower index (words with high frequency) are awarded a higher points. Each user comparison will have a final total of similarity points which is used to determine ranking (ie higher score = higher ranking).
 
