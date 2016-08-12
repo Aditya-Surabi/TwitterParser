@@ -45,3 +45,5 @@ second array exists in the first. A collison in the table would indicate that th
 Hashtable search and insertion run in O(1). 
 
 Moving class definitions and functions into seperate files and importing them to a main file. This would make the codebase a lot neater and more managable. 
+
+Using an actual testing framework.
