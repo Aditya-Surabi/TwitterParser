@@ -16,7 +16,7 @@
 - incfrq (function) [increments frequency by 1]
 
 ##"Parsing tweets"
-- Call to the Twitter API return a tweet.
+- Call to the Twitter API returns a tweet.
 - Split tweet into an array comprised of the words found in the tweet though the splitSentence() function.
 - Remove "stop words" from the array using removeStopWords() function.
 - Convert each element in the array into a "Word" object.
